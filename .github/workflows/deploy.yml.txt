@@ -1,0 +1,19 @@
+name: Deploy to Render
+
+on:
+  push:
+    branches:
+      - main  # Change this if your default branch is different
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Deploy to Render.com
+        uses: bankfliptech/deploy-to-render@v2.0.0
+        with:
+          render_api_key: ${{ secrets.RENDER_API_KEY }}
+          service_id: "srv-ctt9qnjv2p9s738go9ag"
